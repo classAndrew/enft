@@ -1,0 +1,16 @@
+sky
+sun
+moon
+stars
+earth
+mountain
+tree
+forest
+leaf
+root
+branch
+air
+wind
+water
+sea
+land

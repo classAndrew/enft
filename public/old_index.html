@@ -1,0 +1,22 @@
+<html>
+    <p> andrew and nora's insane e nft generating thing to help the environment </p>
+    <body>
+        <img id="replace" src="..."> </img>
+        <button onclick="reveal()"> click me </button>
+        <p id="notification"> </p>
+    </body>
+
+    <script>
+        function reveal() {
+            let notification = document.querySelector("#notification");
+            let replace_em = document.querySelector("#replace");
+            notification.textContent = "your images are being generated";
+
+            fetch("/getimage").then(res => {
+                replace_em.src = "/getimage";    
+                notification.textContent = "your images are here";
+
+            });
+        }
+    </script>
+</html>
