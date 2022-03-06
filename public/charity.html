@@ -38,7 +38,6 @@ dynamicQuery = (e) => {
     lastQuery = Date.now();
     setTimeout(() => {
         if (Date.now() - lastQuery < 400) return;
-        console.log("hi")
         updateList();
     }, 450);
 };

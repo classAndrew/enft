@@ -54,7 +54,7 @@
        </div>
 
        <div class ="show">
-           <h1> Show me some <b>NFTs</b></h1>
+           <h1 id="artname"> Show me some <b>NFTs</b></h1>
        </div>
 
        
@@ -85,10 +85,13 @@
         let im1 = document.querySelector("#nft1");
         let im2 = document.querySelector("#nft2");
         let im3 = document.querySelector("#nft3");
+        // let name = document.querySelector("#artname");
+
         // notification.textContent = "your images are being generated";
         fetch("/genimage")
             .then((res) => res.json())
             .then((resJson) => {
+                // name.textContent = resJson.name.replace('_', ' ');
                 im1.src = `/getimage?name=${resJson.name}`;
                 im2.src = `/getimage?name=${resJson.name}`;
                 im3.src = `/getimage?name=${resJson.name}`;
@@ -180,7 +183,6 @@
 
 <div id="myModal" class="modal">
 
-    <!-- Modal content -->
     <div class="modal-content" style="height: 70%">
         <span onclick="closeModal()" class="close">&times;</span>
         <iframe src="/charity" style="width: 100%; height: 80%;" frameBorder="0"> </iframe>
