@@ -1,0 +1,46 @@
+<html>
+<head>
+    <link rel="stylesheet" href="charity.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</html>
+
+<div class ="title">
+<h2>Sustainable Charities🍀</h2>
+</div>
+<input type="text" id="myInput" onkeyup="dynamicQuery()" placeholder="Search for names.." title="Type in a name">
+
+<ul id="myUL">
+
+</ul>
+
+<script>
+function updateList() {
+    const keywords = document.querySelector("#myInput").value;
+    const ulList = document.querySelector("#myUL");
+
+    fetch(`/listcharities?keywords=${keywords}`)
+        .then(res => res.json())
+        .then(resJson => {
+            ulList.innerHTML = "";
+
+            resJson.forEach((e) => {
+                ulList.innerHTML += 
+                    `<li><a href="${e.url}">${e.name}</a></li>`;
+            });
+        });
+}
+
+let lastQuery = Date.now();
+dynamicQuery = (e) => {
+    lastQuery = Date.now();
+    setTimeout(() => {
+        if (Date.now() - lastQuery < 400) return;
+        console.log("hi")
+        updateList();
+    }, 450);
+};
+
+</script>

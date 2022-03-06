@@ -1,22 +1,158 @@
-<html>
-    <p> andrew and nora's insane e nft generating thing to help the environment </p>
-    <body>
-        <img id="replace" src="..."> </img>
-        <button onclick="reveal()"> click me </button>
-        <p id="notification"> </p>
-    </body>
+<link rel="stylesheet" href="styles.css">
+<script src="blank.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<div class="title1">
+<center>
+<h1> Sustaining the  🌎<br>
+  one NFT at a time.
+</center>
+</h1>
+</div>
 
-    <script>
-        function reveal() {
-            let notification = document.querySelector("#notification");
-            let replace_em = document.querySelector("#replace");
-            notification.textContent = "your images are being generated";
 
-            fetch("/getimage").then(res => {
-                replace_em.src = "/getimage";    
-                notification.textContent = "your images are here";
 
-            });
-        }
-    </script>
-</html>
+<div class ="sub">
+<center>
+<p> 
+  Our goal is to provide a platform for users to purchase NFTs, 
+   while also<br> giving back to sustainable charities they believe in. 
+    We believe that this <br> will help to create a more ecological and 
+    compassionate future.
+</p>
+</center>
+</div>
+
+<div class="buttons">
+  <button class="btn-hover color-1" onclick="getNfts()">Generate NFT</button>
+  </div>
+
+<div class ="button1">
+  <button class ="button btn13" onclick="myFunction()">Light/Dark</button>
+</div>
+
+<div class = "boxone">
+<div class ="subtitle1">
+    <h3> 1) Generate an NFT. Not your style? <br> Generate another!</h3>
+</div>
+
+</div>
+
+<div class = "boxtwo">
+<div class="dos">
+<h3>2) Own a unique NFT while supporting sustainable charities!</h3>
+</div>
+</div>
+
+<div class = "boxthree">
+
+    <div class ="button2">
+
+        <button class="button btn8"> <a href="https://google.com"> here </a> </button>
+       </div>
+
+       <div class ="show">
+           <h1> Show me some <b>NFTs</b></h1>
+       </div>
+
+       
+<div class ="nft1">
+    <img class="center-img" id="nft1"> </img>
+
+</div>
+
+       
+<div class ="nft2">
+
+</div>
+
+       
+<div class ="nft3">
+
+</div>
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+function getNfts() {
+    // let notification = document.querySelector("#notification");
+    let replace_em = document.querySelector("#nft1");
+    // notification.textContent = "your images are being generated";
+    fetch("/genimage")
+        .then((res) => res.json())
+        .then((resJson) => {
+            replace_em.src = `/getimage?name=${resJson.name}`;
+            image.onload = () => {
+                notification.textContent = "your image has finished generating";
+            }
+        });
+}
+
+</script>
+
+<div class =sub2>
+   <h4>
+        NFTs (non fungible tokens) are a <br>
+        natural world as our inspiration? <br>
+        With a little creativity, we can <br>
+        generate endless unique NFTs that <br>
+        represent the beauty and diversity <br>
+        of our planet. Let's get started!
+</h4>
+    </div>
+
+    <div class =sub3>
+        <h4>
+            There are so many great causes out <br>
+            there, but it can be tough to know which <br>
+            ones to support. With NFTs,we can <br>
+            easily support our favorite charities <br>
+            while owning a unique and valuable <br>
+            the best charities to support with NFTs!<br>
+     </h4>
+         </div>
+     
+         <div class ="thirdo">
+             <h3>3) Free resources to educate yourself on 
+                NFTs and sustainability </h3>
+         </div>
+         
+
+    <div class ="fourth">
+        <h3>
+            The Sustainability Hub: This website is a great resource for everything sustainability-related. You can find information on a variety of topics, from renewable energy to sustainable agriculture. Blockchain for Sustainability: This website is dedicated <br> to exploring the potential of blockchain technology for sustainability initiatives.
+        </h3>
+    </div>
+
+
+<div class ="FAQ">
+    <H1>Frequently Asked Questions</H1>
+</div>
+<div class ="first">
+<details>
+    <summary>Who are we?</summary>
+
+    <p>We are two undergraduate students who have a passion for sustainability and giving back to our community. What is our mission? Our mission is to provide a platform for users to purchase NFTs, while also giving back to sustainable charities they believe in. How will we achieve this? We will achieve this by working with various charities to create unique NFTs that users can purchase. These NFTs will help to support the charities we partner with, and will also help to raise awareness for their cause.</p>
+</details>
+</div>
+
+<div class ="second">
+    <details>
+        <summary>Why NFTs?</summary>
+    
+<p>NFTs are a great way to raise money for charities, as they can be sold for a profit and provide a source of revenue for the charity. Additionally, NFTs can help to raise awareness for a charity’s cause, as users can learn about the charity’s work by reading the information associated with the NFT.</p></details>
+    </div>
+    
+    
+ <div class ="third">
+        <details>
+            <summary>What are the benefits?</summary>
+        
+<p>As our world becomes increasingly digitized, blockchain technology is providing new and innovative ways to manage digital assets. One of these innovations is the use of non-fungible tokens (NFTs). NFTs are unique digital assets that can be used to represent digital or physical assets. They are different from traditional cryptocurrencies, such as Bitcoin, because they are not interchangeable. This makes them perfect for representing things like unique artwork, collectible items, or even land ownership. One of the benefits of NFTs is that they can be used to tokenize physical assets. This means that the ownership of a physical asset can be tracked and transferred on the blockchain. This is a more efficient and secure way to manage physical assets, and it also helps to reduce the environmental impact of traditional asset management methods. Another benefit of NFTs is that they can be used to create digital collectibles. These collectibles can be used to represent anything from unique artwork to rare items. They can also be used to create digital scarcity, which is a key factor in increasing the value of digital assets. Finally, NFTs can be used to create decentralized marketplaces. These marketplaces can be used to buy and sell digital assets, including NFTs. This can help to reduce the environmental impact of traditional centralized marketplaces. In conclusion, NFTs are a good option for managing digital assets, because they are secure, efficient, and environmentally friendly.</p>
+            </div>
+        
+

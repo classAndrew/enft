@@ -11,8 +11,8 @@ const port = 3000;
 
 const ADJ_LEN = 2;
 const NOUN_LEN = 2;
-const MAX_ITER = 1;
-const SAVE_AT = 1;
+const MAX_ITER = 10;
+const SAVE_AT = 10;
 
 app.use(express.static(publicDirectoryPath));
 
@@ -46,9 +46,8 @@ app.get('/', (req, res) => {
   res.sendFile("public/index.html");
 });
 
-app.get("/getimage", (req, res) => {
+app.get("/genimage", (req, res) => {
     // generate a prompt
-
     const prompt = generatePrompt(adjectives, nouns);
     const prompt_fn = prompt.split(' ').join('_');
 
@@ -61,17 +60,27 @@ app.get("/getimage", (req, res) => {
  -o ${prompt_fn}.png\
  && mv ${prompt_fn}.png ../images/${prompt_fn}.png`);
 
-    res.sendFile(`images/${prompt_fn}.png`, { root: __dirname }); 
+    res.json({name: prompt_fn}); 
+    // res.json({name: "radiant_immeasurable_branch_leaf_"});
+});
+
+app.get("/getimage", (req, res) => {
+    const name = req.query.name || "sample1";
+    
+    res.sendFile(`images/${name}.png`, { root: __dirname }); 
 });
 
 app.get("/listcharities", (req, res) => {
     const keywords = req.query.keywords || "environmental";
+
     const charity_uri = `https://api.data.charitynavigator.org/v2/Organizations?
 app_id=${config["CHARITY_API_ID"]}&app_key=${config["CHARITY_API_KEY"]}&search=${keywords}`.replace('\n', '');
+
     axios.get(charity_uri)
         .then((resp) => {
             const charList = resp.data
-                .map((v) => v["charityName"]);
+                .map((v) => ({name: v["charityName"], url: v["websiteURL"]}))
+                .filter((v) => v.url);
             
             res.json(charList);
         }).catch((err) => {
@@ -82,6 +91,14 @@ app_id=${config["CHARITY_API_ID"]}&app_key=${config["CHARITY_API_KEY"]}&search=$
 
 app.get("/style.css", (req, res) => {
     res.sendFile("public/style.css");
+});
+
+app.get("/charity.css", (req, res) => {
+    res.sendFile("public/charity.css", { root: __dirname });
+});
+
+app.get("/charity", (req, res) => {
+    res.sendFile("public/charity.html", { root: __dirname });
 });
 
 app.listen(port, () => {

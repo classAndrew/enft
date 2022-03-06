@@ -50,7 +50,7 @@
 
     <div class ="button2">
 
-        <button class="button btn8"> <a href="https://google.com"> here </a> </button>
+        <button class="button btn8"> <a href="https://www.notion.so/ENFT-Collective-Resources-584f32883c2f42e99682632a27ab2d07" style="text-decoration: none;"> Collective </a> </button>
        </div>
 
        <div class ="show">
@@ -58,36 +58,54 @@
        </div>
 
        
-<div class ="nft1">
-    <img class="center-img" id="nft1"> </img>
+<div class ="dim nft1">
+    <img id="nft1" src="https://i.pinimg.com/736x/bb/9a/ed/bb9aed9606c71a3a208f9d99de3d17bb.jpg"  width="300" height="360">
 
 </div>
 
        
 <div class ="nft2">
+    <img id="nft2" src="https://i.pinimg.com/736x/bb/9a/ed/bb9aed9606c71a3a208f9d99de3d17bb.jpg"  width="300" height="360">
 
 </div>
 
        
-<div class ="nft3">
+<div class ="dim nft3">
+    <img id="nft3" src="https://i.pinimg.com/736x/bb/9a/ed/bb9aed9606c71a3a208f9d99de3d17bb.jpg"  width="300" height="360">
 
 </div>
 
 <script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-function getNfts() {
-    // let notification = document.querySelector("#notification");
-    let replace_em = document.querySelector("#nft1");
-    // notification.textContent = "your images are being generated";
-    
-    replace_em.src = "/getimage";
-    image.onload = () => {
-        notification.textContent = "your image has finished generating";
+    function myFunction() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
     }
-}
+    function getNfts() {
+        // let notification = document.querySelector("#notification");
+        let im1 = document.querySelector("#nft1");
+        let im2 = document.querySelector("#nft2");
+        let im3 = document.querySelector("#nft3");
+        // notification.textContent = "your images are being generated";
+        fetch("/genimage")
+            .then((res) => res.json())
+            .then((resJson) => {
+                im1.src = `/getimage?name=${resJson.name}`;
+                im2.src = `/getimage?name=${resJson.name}`;
+                im3.src = `/getimage?name=${resJson.name}`;
+            });
+    }
+    
+    function modalPrompt() {
+        var modal = document.getElementById("myModal");
+
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+
+        modal.style.display = "none";
+    }
 </script>
 
 <div class =sub2>
@@ -152,3 +170,20 @@ function getNfts() {
             </div>
         
 
+
+            <button class="button btn9" onclick="modalPrompt()"> <a href="#" style="text-decoration: none;"> Charities </a>  </button>
+        </div>
+
+
+        <button class="button btn10"> <a href="https://gajjfej7sh1.typeform.com/to/N5b3J8AF" style="text-decoration: none;"> Contact </a> </button>
+    </div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="height: 70%">
+        <span onclick="closeModal()" class="close">&times;</span>
+        <iframe src="/charity" style="width: 100%; height: 80%;" frameBorder="0"> </iframe>
+    </div>
+
+</div>
