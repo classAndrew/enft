@@ -239,9 +239,9 @@ box-shadow: 4px 4px 6px 0 rgba(103, 211, 89, 0.5),
 }
 .show {
 font-family: 'Poppins', sans-serif;
-margin-left:-170%;
+margin-left:-600px;
 margin-top:10px;
-font-size:20px;
+font-size:30px;
 }
 
 .nft1 {
