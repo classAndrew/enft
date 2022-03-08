@@ -1,5 +1,7 @@
 # enft
 
+(enft.andw.me redirects here now because I ran out of GCP credits). Hello if you're from the future
+
 If you want to set up the project,
 
 1. git clone --recursive-submodules https://github.com/classAndrew/enft.git
